@@ -21,7 +21,11 @@
       <h3>Basic game-controls demo</h3>
       <demo-snippet>
         <template>
-          <game-controls height-container="500" width-container="700"></game-controls>
+          <game-controls>
+            <canvas id="canvas-game" width="700" height="500">
+              You browser don't support html5 CANVAS
+            </canvas>
+          </game-controls>
         </template>
       </demo-snippet>
     </div>

@@ -10,11 +10,43 @@
       .style-canvas {
         display: inline-block;
         border: 0.1em solid black;
-        
+      }
+      .panel{
+        display: flex;
+        position: relative;
+      }
+      .btn-action{
+        width: 56px;
+        height: 56px;
+        padding: 0 0;
+        border-radius: 2em;
+      }
+      .btn-action img{
+        width: 50px;
+        height: 50px;
       }
     </style>
-    <div id="containerCanvas" class="style-canvas" >
+    <div id="containerCanvas" class="style-canvas">
       <slot></slot>
+      <div id="panelPad" class="panel">
+        <div class="left-area">
+            <div>
+                <button type="button" class="btn-action"><img src="../src/arrow_up.png" /></button>
+              </div>
+              <div>
+                <button type="button" class="btn-action"><img src="../src/arrow_left.png" /></button>
+                <button type="button" class="btn-action"><img src="../src/arrow_rigth.png" /></button>
+              </div>
+              <div>
+                <button type="button" class="btn-action"><img src="../src/arrow_down.png" /></button>
+              </div>
+        </div>
+        <div class="rigth-area">
+            <div>
+                <button type="button" class="btn-action"><img src="../src/fire.png" /></button>
+              </div>
+        </div>
+      </div>
     </div>
   </template>
 
@@ -43,6 +75,10 @@
           _containerCanvas: {
             type: Object,
             value: () => { }
+          },
+          _panelPad: {
+            type: Object,
+            value: () => { }
           }
         };
       }
@@ -50,7 +86,7 @@
       ready() {
         super.ready();
         this.set("_containerCanvas", this.$.containerCanvas);
-        console.log(this._containerCanvas)
+        this.set("_panelPad", this._containerCanvas.querySelector("#panelPad"));
       }
     }
 
