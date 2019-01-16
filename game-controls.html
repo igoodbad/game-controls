@@ -31,19 +31,19 @@
       <div id="panelPad" class="panel">
         <div class="left-area">
             <div>
-                <button type="button" class="btn-action"><img src="../src/arrow_up.png" /></button>
+                <button type="button" class="btn-action"><img src$="[[imgUp]]" /></button>
               </div>
               <div>
-                <button type="button" class="btn-action"><img src="../src/arrow_left.png" /></button>
-                <button type="button" class="btn-action"><img src="../src/arrow_rigth.png" /></button>
+                <button type="button" class="btn-action"><img src$="[[imgLeft]]" /></button>
+                <button type="button" class="btn-action"><img src$="[[imgRigth]]" /></button>
               </div>
               <div>
-                <button type="button" class="btn-action"><img src="../src/arrow_down.png" /></button>
+                <button type="button" class="btn-action"><img src$="[[imgDown]]" /></button>
               </div>
         </div>
         <div class="rigth-area">
             <div>
-                <button type="button" class="btn-action"><img src="../src/fire.png" /></button>
+                <button type="button" class="btn-action"><img src$="[[imgFire]]" /></button>
               </div>
         </div>
       </div>
@@ -70,6 +70,26 @@
           widthContainer: {
             type: Number,
             value: 0
+          },
+          imgUp: {
+            type: String,
+            value: ""
+          },
+          imgDown: {
+            type: String,
+            value: ""
+          },
+          imgLeft: {
+            type: String,
+            value: ""
+          },
+          imgRigth: {
+            type: String,
+            value: ""
+          },
+          imgFire: {
+            type: String,
+            value: ""
           },
 
           _containerCanvas: {
