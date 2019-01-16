@@ -1,0 +1,59 @@
+<link rel="import" href="../polymer/polymer-element.html">
+
+<dom-module id="game-controls">
+  <template>
+    <style>
+      :host {
+        display: block;
+      }
+
+      .style-canvas {
+        display: inline-block;
+        border: 0.1em solid black;
+        
+      }
+    </style>
+    <div id="containerCanvas" class="style-canvas" >
+      <slot></slot>
+    </div>
+  </template>
+
+  <script>
+    /**
+     * `game-controls`
+     * Gamepad for games
+     *
+     * @customElement
+     * @polymer
+     * @demo demo/index.html
+     */
+    class GameControls extends Polymer.Element {
+      static get is() { return 'game-controls'; }
+      static get properties() {
+        return {
+          heightContainer: {
+            type: Number,
+            value: 0
+          },
+          widthContainer: {
+            type: Number,
+            value: 0
+          },
+
+          _containerCanvas: {
+            type: Object,
+            value: () => { }
+          }
+        };
+      }
+
+      ready() {
+        super.ready();
+        this.set("_containerCanvas", this.$.containerCanvas);
+        console.log(this._containerCanvas)
+      }
+    }
+
+    window.customElements.define(GameControls.is, GameControls);
+  </script>
+</dom-module>
