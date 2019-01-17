@@ -13,17 +13,36 @@
       }
       .panel{
         display: flex;
-        position: relative;
+
+position: relative;
+
+left: 30px;
+
+bottom: 0%;
+
+z-index: 3;
+
+width: 100%;
+
+justify-content: space-around;
+      }
+      .left-area{
+        display:flex;
+      }
+      .rigth-area{
+display:flex;
       }
       .btn-action{
         width: 56px;
         height: 56px;
         padding: 0 0;
+        background-size: 50px 50px;
+        background-position: center;
+        background-color: rgba(255, 255, 255, .5);
         border-radius: 2em;
       }
-      .btn-action img{
-        width: 50px;
-        height: 50px;
+      .btn-fire{
+        background-color: rgba(255, 0, 0, .5);
       }
     </style>
     <div id="containerCanvas" class="style-canvas">
@@ -31,19 +50,19 @@
       <div id="panelPad" class="panel">
         <div class="left-area">
             <div>
-                <button type="button" class="btn-action"><img src$="[[imgUp]]" /></button>
+                <button type="button" class="btn-action" style$="background-image: url([[imgUp]])"></button>
               </div>
               <div>
-                <button type="button" class="btn-action"><img src$="[[imgLeft]]" /></button>
-                <button type="button" class="btn-action"><img src$="[[imgRigth]]" /></button>
+                <button type="button" class="btn-action" style$="background-image: url([[imgLeft]])"></button>
+                <button type="button" class="btn-action" style$="background-image: url([[imgRigth]])"></button>
               </div>
               <div>
-                <button type="button" class="btn-action"><img src$="[[imgDown]]" /></button>
+                <button type="button" class="btn-action" style$="background-image: url([[imgDown]])"></button>
               </div>
         </div>
         <div class="rigth-area">
             <div>
-                <button type="button" class="btn-action"><img src$="[[imgFire]]" /></button>
+                <button type="button" class="btn-action btn-fire" style$="background-image: url([[imgFire]])"></button>
               </div>
         </div>
       </div>
