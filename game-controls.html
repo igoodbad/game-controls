@@ -50,19 +50,19 @@ display:flex;
       <div id="panelPad" class="panel">
         <div class="left-area">
           <div>
-            <button type="button" class="btn-action" style$="background-image: url([[imgUp]])" on-click="_action('up')"></button>
+            <button id="btn_action_up" type="button" class="btn-action" style$="background-image: url([[imgUp]])" on-click="_action"></button>
           </div>
           <div>
-            <button type="button" class="btn-action" style$="background-image: url([[imgLeft]])"  on-click="_action('left')"></button>
-            <button type="button" class="btn-action" style$="background-image: url([[imgRigth]])" on-click="_action('rigth')"></button>
+            <button id="btn_action_left" type="button" class="btn-action" style$="background-image: url([[imgLeft]])"  on-click="_action"></button>
+            <button id="btn_action_rigth" type="button" class="btn-action" style$="background-image: url([[imgRigth]])" on-click="_action"></button>
           </div>
           <div>
-            <button type="button" class="btn-action" style$="background-image: url([[imgDown]])" on-click="_action('down')"></button>
+            <button id="btn_action_down" type="button" class="btn-action" style$="background-image: url([[imgDown]])" on-click="_action"></button>
           </div>
         </div>
         <div class="rigth-area">
           <div>
-            <button type="button" class="btn-action btn-fire" style$="background-image: url([[imgFire]])" on-click="_action('fire')"></button>
+            <button id="btn_action_fire" type="button" class="btn-action btn-fire" style$="background-image: url([[imgFire]])" on-click="_action"></button>
           </div>
         </div>
       </div>
@@ -128,7 +128,8 @@ display:flex;
         this.set("_panelPad", this._containerCanvas.querySelector("#panelPad"));
       }
 
-      _action(action){
+      _action(event){
+        const action = event.target.id;
         this.dispatchEvent(new CustomEvent("tap-action", {
           detail: action
         }));
