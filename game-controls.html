@@ -49,21 +49,21 @@ display:flex;
       <slot></slot>
       <div id="panelPad" class="panel">
         <div class="left-area">
-            <div>
-                <button type="button" class="btn-action" style$="background-image: url([[imgUp]])"></button>
-              </div>
-              <div>
-                <button type="button" class="btn-action" style$="background-image: url([[imgLeft]])"></button>
-                <button type="button" class="btn-action" style$="background-image: url([[imgRigth]])"></button>
-              </div>
-              <div>
-                <button type="button" class="btn-action" style$="background-image: url([[imgDown]])"></button>
-              </div>
+          <div>
+            <button type="button" class="btn-action" style$="background-image: url([[imgUp]])" on-click="_action('up')"></button>
+          </div>
+          <div>
+            <button type="button" class="btn-action" style$="background-image: url([[imgLeft]])"  on-click="_action('left')"></button>
+            <button type="button" class="btn-action" style$="background-image: url([[imgRigth]])" on-click="_action('rigth')"></button>
+          </div>
+          <div>
+            <button type="button" class="btn-action" style$="background-image: url([[imgDown]])" on-click="_action('down')"></button>
+          </div>
         </div>
         <div class="rigth-area">
-            <div>
-                <button type="button" class="btn-action btn-fire" style$="background-image: url([[imgFire]])"></button>
-              </div>
+          <div>
+            <button type="button" class="btn-action btn-fire" style$="background-image: url([[imgFire]])" on-click="_action('fire')"></button>
+          </div>
         </div>
       </div>
     </div>
@@ -126,6 +126,12 @@ display:flex;
         super.ready();
         this.set("_containerCanvas", this.$.containerCanvas);
         this.set("_panelPad", this._containerCanvas.querySelector("#panelPad"));
+      }
+
+      _action(action){
+        this.dispatchEvent(new CustomEvent("tap-action", {
+          detail: action
+        }));
       }
     }
 
